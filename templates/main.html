@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'responsive.css' %}" />
+	
+	<link rel="icon" href="{% static '/img/blood-bank-fav-icon.png' %}" type="image/x-icon"/>
+	<link rel="shortcut icon" href="{% static '/img/blood-bank-fav-icon.png' %}" type="image/x-icon"/>
+	
+	<title>Mugdhota Blood Bank</title>
+</head>
+<body>
+
+
+	<!--header-->
+	<div class="container_full desk_header" id="navbar">
+		<div class="container">
+
+			<div id="header" class="col-lg-12 col-md-12 col-xs-12">
+			    
+			    
+				<div class="home_cnt col-lg-3 col-md-3 col-xs-12 mob" style="background:red;height:32px">
+					<div class="home_info">
+						<ul style="width:100%;float:left">
+							<li style="width:30%;float:left;"><a style="color:#fff;padding:5px 0 0 0;text-align:left" href="{% url 'contact-us' %}">Contact</a></li>
+							<li style="width:70%;float:right">
+							    <!-- Logged In User -->
+    							{% if request.user.is_authenticated %}
+    							<div class="h_user hu_mob_d" style="margin:0">
+    								<a style="text-align:right" href="{% url 'profile' username=request.user.username %}" >
+    								    <span style="color:#fff">{{request.user.name}}</span>
+								        <img src="{{ request.user.avatar.url }}" alt="" />
+    								</a>
+    							</div>
+    							{% else %}
+    							<!-- Logged In -->
+    							<div class="h_user" style="margin:0">
+    							    <a href="{% url 'login' %}">
+        							    <div style="width:35px;height:35px;float:right;margin-right:8px;">
+        								    <img src="{% static 'img/default-profile.jpg' %}" alt="" />
+        								</div>
+        								<div style="float:right;display:inline-block">
+        									<p style="margin: 2% 0 0 0;color:#fff">Log-in</p>
+        								</div>
+    								</a>
+    							</div>
+    							{% endif %}
+							</li>
+							<!-- Logged In User
+							{% if request.user.is_authenticated %}
+							<li style="width:48%;float:left"><a href="{% url 'logout' %}">log-out</a></li>
+							{% else %}
+							<li style="width:48%;float:left"><a href="{% url 'login' %}">Log-in</a></li>
+							{% endif %}-->
+						</ul>
+						
+					</div>
+				</div>
+
+			    
+				<div class="home_title col-lg-4 col-md-9 col-xs-10">
+					<div class="home_icon">
+						<a href="https://bloodbank.mugdhota.com/"><img src="{% static 'img/mugdhota-blood-bank.png' %}" alt="Mugdhota Blood Bank" /></a>
+					</div>
+				</div>
+                
+                <div id="myNav" class="overlay">
+                    <div class="overlay-content">
+                        <form class="mh_search_mob" method="GET" action="{% url 'home' %}">
+                            <label style="width:76%;float:left">
+                                <input name="q" placeholder="অনুসন্ধান করুন..." />
+                            </label>
+                            <label style="width:10%;float:left;margin:0">
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+                                        <path d="M8.269 2.469a5.764 5.764 0 014.1 1.7 5.764 5.764 0 011.7 4.1 5.78 5.78 0 01-.347 1.984 5.778 5.778 0 01-.962 1.688l-.383.467-.472.381a5.735 5.735 0 01-3.638 1.283 5.764 5.764 0 01-4.1-1.7 5.764 5.764 0 01-1.7-4.1 5.764 5.764 0 011.7-4.1 5.764 5.764 0 014.1-1.7m0-2.467A8.269 8.269 0 00.003 8.269a8.269 8.269 0 008.269 8.269 8.233 8.233 0 005.187-1.829 1.755 1.755 0 00.444 1.717l3.114 3.114a1.745 1.745 0 001.238.511 1.745 1.745 0 001.238-.511 1.756 1.756 0 000-2.476l-3.114-3.114a1.744 1.744 0 00-1.237-.51 1.771 1.771 0 00-.468.063 8.234 8.234 0 001.867-5.234A8.269 8.269 0 008.272 0z" data-name="Path 223" fill="#001246"></path>
+                                    </svg>
+                                </button>
+                            </label>
+                            <label style="width:10%;float:left;margin-top: 12px;">
+                                <a style="font-size:22px;background:#ddd;padding:4px 8px;margin-left: 5px;border-radius: 5px;" href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
+                            </label>
+                        </form>
+                    </div>
+                </div>
+                
+				<div class="home_src col-lg-4 col-md-4 col-xs-2">
+					<div class="search_bar desk">
+						<form class="mh_search" method="GET" action="{% url 'home' %}">
+                            <label style="width:90%;float:left">
+                                <input name="q" placeholder="অনুসন্ধান করুন..." />
+                            </label>
+                            <label style="width:10%;float:left">
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="margin-top:2px">
+                                        <path d="M8.269 2.469a5.764 5.764 0 014.1 1.7 5.764 5.764 0 011.7 4.1 5.78 5.78 0 01-.347 1.984 5.778 5.778 0 01-.962 1.688l-.383.467-.472.381a5.735 5.735 0 01-3.638 1.283 5.764 5.764 0 01-4.1-1.7 5.764 5.764 0 01-1.7-4.1 5.764 5.764 0 011.7-4.1 5.764 5.764 0 014.1-1.7m0-2.467A8.269 8.269 0 00.003 8.269a8.269 8.269 0 008.269 8.269 8.233 8.233 0 005.187-1.829 1.755 1.755 0 00.444 1.717l3.114 3.114a1.745 1.745 0 001.238.511 1.745 1.745 0 001.238-.511 1.756 1.756 0 000-2.476l-3.114-3.114a1.744 1.744 0 00-1.237-.51 1.771 1.771 0 00-.468.063 8.234 8.234 0 001.867-5.234A8.269 8.269 0 008.272 0z" data-name="Path 223" fill="#001246"></path>
+                                    </svg>
+                                </button>
+                            </label>
+                        </form>
+					</div>
+					<div class="mob" style="margin-top:38%">
+                        <span style="font-size:30px;cursor:pointer" onclick="openNav()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+                                <path d="M8.269 2.469a5.764 5.764 0 014.1 1.7 5.764 5.764 0 011.7 4.1 5.78 5.78 0 01-.347 1.984 5.778 5.778 0 01-.962 1.688l-.383.467-.472.381a5.735 5.735 0 01-3.638 1.283 5.764 5.764 0 01-4.1-1.7 5.764 5.764 0 01-1.7-4.1 5.764 5.764 0 011.7-4.1 5.764 5.764 0 014.1-1.7m0-2.467A8.269 8.269 0 00.003 8.269a8.269 8.269 0 008.269 8.269 8.233 8.233 0 005.187-1.829 1.755 1.755 0 00.444 1.717l3.114 3.114a1.745 1.745 0 001.238.511 1.745 1.745 0 001.238-.511 1.756 1.756 0 000-2.476l-3.114-3.114a1.744 1.744 0 00-1.237-.51 1.771 1.771 0 00-.468.063 8.234 8.234 0 001.867-5.234A8.269 8.269 0 008.272 0z" data-name="Path 223" fill="#001246"></path>
+                            </svg>
+                        </span>
+					</div>
+				</div>
+				
+				<div class="home_cnt col-lg-4 col-md-3 col-xs-12 desk">
+					<div class="home_info">
+						<ul style="width:28%;float:left">
+							<li><a href="{% url 'contact-us' %}">Contact</a></li>
+						</ul>
+						
+						<div class="dropdownas" style="width:72%;float:left">
+
+							<!-- Logged In User -->
+							{% if request.user.is_authenticated %}
+							<div class="h_user">
+								<a style="text-align:right" href="{% url 'profile' username=request.user.username %}">
+								    <span>{{request.user.name}}</span>
+								    <img src="{{ request.user.avatar.url }}" alt="" />
+								</a>
+							</div>
+							{% else %}
+							<!-- Logged In -->
+							<div class="h_user">
+							    <a style="text-align:right" href="{% url 'login' %}">
+    								<div style="display:inline-block">
+    									<p style="margin: 8px 5px 0 0;">Log-in</p>
+    								</div>
+    							    <div style="width:35px;height:35px;float:right;margin-right:0px;">
+    								    <img src="{% static 'img/default-profile.jpg' %}" alt="" />
+    								</div>
+								</a>
+							</div>
+							{% endif %}
+
+						</div>
+						
+						
+					</div>
+				</div>
+
+				
+			</div>
+            
+		</div>
+	</div>
+	
+	
+	
+	{% block content %}
+
+    {% endblock %}
+
+	{% include 'style.html' %}
+
+	<!--Footer Section-->
+	<div class="container_full footer_bg">
+		<div class="container">
+			<div id="Section" class="col-lg-12 col-md-12 col-xs-12">
+				<div class="col-lg-8 col-md-8 col-xs-12">
+				    
+					<div class="footer about_us">
+						<h2>About Us</h2>
+						<p>'মুগ্ধতা ব্লাড ব্যাংক' মুগ্ধতা ডট কমের একটি সামাজিক উদ্যোগ। এখানে নিজের বা পরিচিতদের রক্তের গ্রুপ সম্পর্কে তথ্য দিয়ে এটিকে সমৃদ্ধ করতে সাহায্য করুন।</p>
+					</div>
+					<div class="footer about_us">
+						<h2 style="padding:25px 0 10px 0">যোগাযোগ:</h2>
+						<p>বইবাড়ি, প্রেসক্লাব মার্কেট (দ্বিতীয় তলা), রংপুর-৫৪০০</p>
+						<p>ফোন: <a href="tel:01728753576">01728753576</a> , <a href="tel:01751318924">01751318924</a></p>
+					</div>
+				</div>
+				
+				<div class="col-lg-4 col-md-4 col-xs-12">
+					<div class="footer about_us" style="margin-top:25px">
+					    <ul>
+							<li><a href="{% url 'contact-us' %}">Contact Us</a></li>
+							<li><a href="{% url 'login' %}">Log In</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+			
+			<div id="Section" class="col-lg-12 col-md-12 col-xs-12">
+			    <div class="design" style="text-align:center">
+    				<h2 style="padding:0">Design & Developed by</h2>
+    				<p>Redwanul Islam</p>
+    				<p>ফোন: <a href="tel:01751318924">01751318924</a></p>
+    			</div>
+			</div>
+			
+			<div id="Section" class="col-lg-12 col-md-12 col-xs-12">
+			    <div class="design">
+			        <p style="text-align:center;color:red;font-family:georgia;;font-size:19px;font-weight:bold">Copy right &copy; All right reserve mugdhota.com</p>
+    			</div>
+			</div>
+			
+		</div>
+	</div>
+	<!--End Section-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+    $("#id_division").change(function () {
+        const url = $("#personForm").attr("data-cities-url");  // get the url of the `load_cities` view
+        const divisionId = $(this).val();  // get the selected division ID from the HTML input
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'division_id': divisionId       // add the division id to the GET parameters
+            },
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+                $("#id_location").html(data);  // replace the contents of the location input with the data that came from the server
+                /*
+                let html_data = '<option value="">Select</option>';
+                data.forEach(function (location) {
+                    html_data += `<option value="${location.id}">${location.name}</option>`
+                });
+                console.log(html_data);
+                $("#id_location").html(html_data);
+                **/
+            }
+        });
+
+    });
+    
+    /**Search**/
+    
+    function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+    }
+    
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }
+    
+    
+</script>
+
+
+
+</body>
+</html>

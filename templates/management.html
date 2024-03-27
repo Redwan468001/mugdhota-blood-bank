@@ -1,0 +1,100 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--Single Page-->
+<div class="container_full" style="padding-top: 10%;padding-bottom: 40px;">
+	<div class="container">
+        
+        
+		<div class="smngmnt_page">
+
+			<div class="management_page">
+			    
+			    <div class="management_page">
+			            
+			        <div class="lead_role">
+			            
+			            <div class="mngr_title">
+			                <h2></h2>
+			            </div>
+			            
+			            {% for person in magmnt %}
+			            <div class="mng_item single_lr">
+			                <div class="sng_item">
+    			                <div class="mng_img">
+    			                    <img src="{{ person.avatar.url }}">
+    			                </div>
+    			                <div class="mng_info">
+    			                    <h2 style="font-size:22px;color:blue">{{ person.management_role }}</h2>
+    			                    <h2 style="font-size:20px;">{{ person.name }}<span style="font-size:16px">, {{ person.designation }}</span></h2>
+    			                    <p style="font-size:17px;">Mobile: {{ person.phone }}</p>
+    			                    <a href="{{ person.social_media }}" style="font-size:17px;">Facebook</a>
+			                    </div>
+			                </div>
+			            </div>
+			            {% endfor %}
+			            
+			        </div>
+			        
+			        <!--
+			        
+			        <div class="adviser_role">
+			            
+			            <div class="mngr_title">
+			                <h2></h2>
+			            </div>
+			            
+			            <div class="mng_item single_lr column-3">
+    			            <div class="sng_item">
+    			                <div class="mng_img">
+    			                    <img src="">
+    			                </div>
+    			                <div class="mng_info">
+    			                    <h2 style="font-size:24px;color:blue">Redwanul Islam</h2>
+    			                    <h2 style="font-size:22px;">Redwanul Islam <span style="font-size:16px">, </span></h2>
+    			                    <p style="font-size:18px;padding:15px 0">Mobile: </p>
+    			                    <a href="" style="font-size:18px;padding:15px 0">Facebook</a>
+    			                </div>
+    			            </div>
+			            </div>
+			            
+			        </div>
+			        
+			        <div class="consultent_role">
+			            
+			            <div class="mngr_title">
+			                <h2></h2>
+			            </div>
+			            
+			            <div class="mng_item single_lr column-2">
+			                <div class="mng_img">
+			                    <img src="">
+			                </div>
+			                <div class="mng_info">
+			                    <h2 style="font-size:24px;color:blue">Redwanul Islam</h2>
+			                    <h2 style="font-size:22px;">Redwanul Islam <span style="font-size:16px">, </span></h2>
+			                    <p style="font-size:18px;padding:15px 0">Mobile: </p>
+			                    <a href="" style="font-size:18px;padding:15px 0">Facebook</a>
+			                    
+			                </div>
+			            </div>
+			            
+			        </div>
+			        -->
+			    
+			    </div>
+				
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+
+{% endblock content %}
+
+

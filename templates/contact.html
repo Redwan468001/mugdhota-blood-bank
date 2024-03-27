@@ -1,0 +1,72 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--Single Page-->
+<div class="container_full" style="padding-top: 10%;padding-bottom: 40px;">
+	<div class="container">
+        
+        
+		<div class="contact_page">
+
+			<div class="cnt_page_left">
+			    
+			    <div class="scnt_page_left">
+			        
+			    </div>
+				
+			</div>
+
+            
+			<div class="cnt_page_right">
+			    
+			    <div class="scnt_page_right">
+				    
+				    {% for message in messages %}
+						<h2 style="color:red">{{message}}</h2>
+					{% endfor %}
+					
+				    <div class="page_title">
+                        <h2>Contact Us</h2>
+                    </div>
+                    
+                    <form class="form" action="" method="POST">
+                        {% csrf_token %}
+                        
+    					<div class="upload_form_field">
+							<div class="upd-1st">নাম: <span style="color:red">*</span></div>
+							<div class="upd-2nd">{{cnt_form.name}}</div>
+						</div>
+						<div class="upload_form_field">
+							<div class="upd-1st">ইমেইল:</div>
+							<div class="upd-2nd">{{cnt_form.email}}</div>
+						</div>
+						<div class="upload_form_field">
+							<div class="upd-1st">মোবাইল নম্বরঃ<span style="color:red">*</span> </div>
+							<div class="upd-2nd">{{cnt_form.phone}}</div>
+						</div>
+						<div class="upload_form_field">
+							<div class="upd-1st">আপনার জিজ্ঞাসা <span style="color:red">*</span></div>
+							<div class="upd-2nd">{{cnt_form.question}}</div>
+						</div>
+						<div class="form_action">
+							<button style="width:100%" type="submit">Submit</button>
+						</div>
+							
+					</form>
+					
+				</div>
+				
+			</div>
+            
+		</div>
+
+	</div>
+</div>
+
+
+
+{% endblock content %}
+
+

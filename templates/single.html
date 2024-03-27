@@ -1,0 +1,103 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+	<!--Single Page-->
+	<div class="container_full" style="padding-top: 10%;padding-bottom: 40px;">
+		<div class="container">
+
+			<div class="left_section">
+
+				<div class="single_page">
+					<div class="sng_page_blood_info">
+
+						<div class="sng_page_blood_img">
+							<img src="{{donner.bloodgroups.image.url}}" alt="" />
+						</div>
+
+						<div class="form_field">
+							<div class="td-1st">দাতার নাম:</div>
+							<div class="td-2nd">{{donner.name}}</div>
+						</div>
+						<div class="form_field">
+							<div class="td-1st">রক্তের গ্রুপ:</div>
+							<div class="td-2nd">{{donner.bloodgroups}}</div>
+						</div>
+						<div class="present-address" style="border:1px solid #ddd;padding:5px 5px 0 5px;margin-bottom:8px">
+						    <h2 style="padding-left:5px;font-size:18px">বর্তমান ঠিকানাঃ</h2>
+						    <div class="form_field">
+								<div class="td-1st">বিভাগঃ </div>
+								<div class="td-2nd">{{donner.division}}</div>
+							</div>
+						    <div class="form_field" style="margin-bottom:0">
+								<div class="td-1st">জেলাঃ</div>
+								<div class="td-2nd">{{donner.location}}</div>
+							</div>
+							<div class="form_field">
+								<div class="td-1st">উপজেলা/থানাঃ</div>
+								<div class="td-2nd">{{donner.city}}</div>
+							</div>
+						</div>
+						<div class="form_field">
+							<div class="td-1st">মোবাইল:</div>
+							{% if donate_time > 120 %}
+							<div class="td-2nd"><a href="tel:{{donner.phone}}">{{donner.phone}}</a></div>
+							{% else %}
+							<div class="td-2nd">রক্তদানের সময় হয়নি।<span style="color:green"> {{donner.name}} </span><span style="color:red"> {{donate_time}} </span>দিন পূর্বে রক্তদান করেছেন।</div>
+							{% endif %}
+						</div>
+						<div class="form_field">
+							<div class="td-1st" style="color: red">সর্বশেষ রক্তদানঃ </div>
+							<div class="td-2nd" style="color: red">{{donner.donation_date}}</div>
+						</div>
+						<div class="form_field">
+							<div class="td-1st" style="color: red">সর্বশেষ হালনাগাতঃ </div>
+							<div class="td-2nd" style="color: red">{{donner.updated}}</div>
+						</div>
+						<div class="form_field">
+							<div class="td-1st" style="color: red">বর্তমান অবস্থাঃ </div>
+							<div class="td-2nd" style="color: red">{{donner.status}}</div>
+						</div>
+						<!--
+						<div class="form_field">
+							<div class="td-1st" style="color: red">বর্তমান অবস্থাঃ </div>
+							<div class="td-2nd" style="color: red">{{donner.author.first_name}} {{donner.author.last_name}}</div>
+						</div>
+						-->
+						<div class="edit_btn">
+							<a href="{% url 'blood-info-update' donner.id %}">সম্পাদন করুন</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="right_section">
+				<div class="rules_section">
+					<div class="single_rule_title">
+						<h2 class="blood_search">শর্তাবলি</h2>
+					</div>
+					<div class="single_rule">
+						<p>১. 'মুগ্ধতা ব্লাড ব্যাংক' মুগ্ধতা ডট কমের একটি সামাজিক উদ্যোগ।</p>
+						<p>২. এখানে নিজের বা পরিচিতদের রক্তের গ্রুপ সম্পর্কে তথ্য দিয়ে এটিকে সমৃদ্ধ করতে সাহায্য করুন। </p>
+						<p>৩. এখানে কেউ রক্তদাতা হিসেবে নিজের তথ্য দিচ্ছেন- এর অর্থ হলো আপনি স্বেচ্ছায়, বিনামূল্যে কোনো মুমূর্ষু/অসুস্থ মানুষকে রক্তদান করতে ইচ্ছুক।</p>
+						<p>৪. ব্লাড ব্যাংক থেকে পাওয়া নম্বরে যোগাযোগ করে রক্তদাতা রাজি থাকলে নিজ দায়িত্বে কোনো ভালো ট্রান্সফিউশন সেন্টার/সরকারি হাসপাতালে রক্ত সংগ্রহ করতে হবে। </p>
+						<p>৫. রক্তদান বা রক্ত সংগ্রহের যে কোনো পর্যায়ে ক্রয়-বিক্রয়ের উদ্দেশ্যে অর্থের লেনদেন থেকে বিরত থাকুন। তবে রক্তদাতাকে পানি, নাস্তা ইত্যাদি খাওয়ানো বা রিকশাভাড়া এই নিষেধাজ্ঞার আওতামুক্ত।</p>
+						<p>৬. কেউ রক্তদানে অনাগ্রহী হলে তাকে কোনো প্রকার জোরাজুরি করা যাবে না।</p>
+						<p>৭. রক্তদাতাকে যথাযথ সম্মান প্রদর্শন করা গ্রহীতার জরুরি দায়িত্ব।</p>
+						<p>৮. রক্তদানের যে কোনো পর্যায়ে কোনো ধরনের দুর্ঘটনা, অনাকাঙ্ক্ষিত ঘটনা ইত্যাদির জন্য মুগ্ধতা ডট কম দায়ী থাকবে না।</p>
+						<p>৯. উপর্যুক্ত শর্তাবলি বা এর কোনো অংশে যে কোনো সময় পরিবর্তন বা সংযোজন করার ক্ষমতা মুগ্ধতা ডট কমের কাছে সংরক্ষিত থাককবে।</p>
+						<p>১০. সময়মতো আপনার রক্তদানের তথ্য আপডেট করুন।</p>
+						<p>১১. বর্ণিত শর্তাবলির বাইরে উদ্ভূত যে কোনো পরিস্থিতিতে মুগ্ধতা ডট কমের সিদ্ধান্তই চূড়ান্ত বলে গণ্য হবে।</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!--End Main Heading-->
+
+
+
+{% endblock %}

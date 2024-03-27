@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--Single Page-->
+<div class="container_full" style="padding-top: 8%;padding-bottom: 40px;">
+	<div class="container">
+        
+		<div class="log_sign_section">
+            
+            <div class="page_title">
+              <h2>Login</h2>
+            </div>
+            
+            {% for message in messages %}
+				<h2 style="color:red">{{message}}</h2>
+			{% endfor %}
+            
+			<div class="ls_page">
+			    
+				<div class="sls_page">
+                    
+                    <form class="form" action="" method="POST">
+                        {% csrf_token %}
+                        <div class="upload_form_field">
+							<div class="upd-1st">Email</div>
+							<div class="upd-2nd"><input type="email" name="email" placeholder="e.g. redwan@gmail.com"></div>
+						</div>
+                        <div class="upload_form_field">
+							<div class="upd-1st">Password</div>
+							<div class="upd-2nd"><input type="password" name="password" placeholder="Password"></div>
+							<a style="font-size:18px;color:red;padding:5px 0" href="{% url 'password_reset' %}">Forgotten your password?</a>
+						</div>
+						
+                        <div class="form_action">
+							<button style="width:100%;margin:0 0 20px 0" type="submit">Login</button>
+                            <h2 style="text-align:center;margin:20px 0"> Not registered? </h2>
+                            <a style="width:100%" href="{% url 'register' %}" class=""> Create a account </a>
+						</div>
+                    </form>
+					
+					
+				</div>
+				
+				
+				
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+{% endblock content %}
+
+

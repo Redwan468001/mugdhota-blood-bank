@@ -1,0 +1,1070 @@
+/**
+Theme Name: Mugdhota Blood Bank
+Author: Redwan
+Email: redwanshuvo1@gmail.com
+Website: resoftek.com
+Version: 1.1.3
+**/
+
+@import url('https://fonts.maateen.me/bangla/font.css');
+@import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+@import url('https://fonts.maateen.me/kalpurush/font.css');
+*{margin:0;padding:0}
+li{list-style:none;float:left;}
+a{text-decoration:none;font-family: kalpurush;}
+a:hover{text-decoration:none}
+td, th{font-family: kalpurush;font-size:16px;font-weight:bold;margin-right: 10px;width:auto;padding: 5px 10px;}
+p{font-family: kalpurush;}
+h2{font-size:17px;margin:10px 0 7px 0;padding:0;color:black;font-weight:bold;font-family: kalpurush;line-height:1.3}
+.no_pad{padding:0 !important;margin:0 !important}
+img{width: 100%;}
+.sec_title h2{font-size:25px;}
+input, button, select, textarea{width:100%;padding: 3px;background: #fff;border: 1px solid #ddd;border-radius: 5px;}
+.user_update_blood_info p{padding:20px 0 !important;}
+
+body{background: #eee;counter-reset: Serial;}
+
+.auto-index td:first-child:before{
+  counter-increment: Serial;      /* Increment the Serial counter */
+  content: counter(Serial); /* Display the counter */
+}
+table{
+    border-collapse: separate;
+}
+.auto-index {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.auto-index td, .auto-index th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.auto-index tr:nth-child(even){background-color: #f2f2f2;}
+
+.auto-index tr:hover {background-color: #ddd;}
+
+.auto-index th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.container_full{width:100%;padding:0}
+.container{width:90%;padding:0}
+/**Header**/
+.desk_header{
+	position: fixed;
+    background: #fff;
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    z-index: 999999999;
+}
+#header{
+	padding: 0;
+}
+.shadow {
+    box-shadow: 0px 0px 5px 1px black;
+}
+
+
+.home_icon{
+	display:block;
+}
+.home_icon img{
+	width:95%;
+}
+.home_info{
+    width: 100%;
+	display: inline-block;
+	float:right;
+}
+.home_info ul{
+	display: inline-block;
+	margin: 0 !important;
+	padding: 2.5% 0 0 0;
+}
+.home_info ul li a{
+	display: block;
+	color: black;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px 5px;
+}
+.home_info ul li a:hover{
+	color: blue;
+}
+.blood_info_title{
+    text-align:center;font-size:25px;border-bottom:1px solid #ddd;padding-bottom:10px
+}
+.info_not_find p{
+    font-size: 20px;
+    font-weight: bold;
+    color: brown;
+    margin-bottom: 25px;
+}
+.info_not_find a{
+    margin: 15px 20% !important;
+    font-size: 18px !important;
+    padding: 8px !important;
+}
+
+/**Search**/
+.mh_search input{
+    width: 100%;
+    padding: 7.5px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    margin: 15px 0 0 0;
+}
+.mh_search button{
+    width: 100%;
+    padding: 5px 5px 3px 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+    margin: 15px 0 0 0;
+}
+.mh_search button{
+    border-radius: 0 5px 5px 0;
+}
+
+
+.mh_search_mob{
+    display: inline-block;
+    width: 100%;
+    margin: 0 10px;
+}
+.mh_search_mob input{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    margin: 7px 0 2px;
+    padding: 10px 7px;
+}
+.mh_search_mob button{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ddd;
+    margin: 7px 0 2px;
+    padding: 7px;
+    border-radius: 0 5px 5px 0;
+}
+
+.overlay {
+    width: 0;
+    position: absolute;
+    z-index: 1;
+    top: 65%;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    background: #fff;
+    padding: 0px;
+}
+
+
+.search_icon{
+    margin: 37% 0 0 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 102%;
+  right: 0;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.mnu_body{width: 250px}
+.mnu_body a{
+    border-bottom:1px solid #ddd;
+    padding: 5px 15px;
+}
+
+.show_mn{
+	display: block;
+}
+.dropbtn {
+  background-color: #fff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.h_user{
+	display: inline-block;
+    width: 100%;
+    margin-top: 5.5%;
+    margin-left: 10px;
+}
+.h_user>a{
+	width: 100%;
+	float: left;
+	cursor: pointer;
+}
+.h_user img{
+	width: 35px;
+	height: 35px;
+	border-radius: 100%;
+	border: 1px solid #ddd;
+	margin: 0 5px;
+}
+
+.hu_mob_d img {
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.mnu_body a{
+	display: block;
+}
+
+
+
+/**Single Blood**/
+
+
+.left_section{
+	width: 68%;
+	float: left;
+}
+
+.blood_info_sec{
+    background: #fff;
+    border-radius: 5px;
+}
+
+.right_section{
+	width: 32%;
+	float: left;
+	position: sticky;
+    top: 90px;
+}
+
+.blood_upload a{
+	text-align: center;
+    display: block;
+    padding: 10px;
+    margin: 20px 0;
+    margin-top: 0px;
+    border: 1px solid #ddd;
+    background: #0c90a7;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+	transition: .2s easy-in-out;
+}
+.blood_upload a:hover{
+	background: green;
+    color: #fff;
+}
+
+.blood_filter{
+	margin: 50px 20px 25px 20px;
+}
+
+.blood_info{
+	display: inline-block;
+    width: 100%;
+}
+.blood_info .single_blood_info{
+	width: 50%;
+	float: left;
+	padding: 10px 20px;
+}
+.sng_bld_info{
+    width: 100%;
+	display: inline-block;
+	background: #fff;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+}
+.sng_blood_img{
+	width: 32%;
+	float: left;
+}
+.sng_blood_info {
+	width: 68%;
+	float: right;
+	display: block;
+	background: #fff;
+}
+.sng_blood_info h2{
+	background: #eee;
+    margin: 5px 0 5px 5px;
+    padding: 5px 0 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.sng_blood_info p{
+	font-size: 18px;
+	padding: 2px 10px;
+	color: black;
+	margin: 0;
+}
+.sng_blood_info p span{
+	padding-right: 6px;
+}
+.read_more{
+	display: block;
+	text-align: center;
+	font-size: 18px !important;
+	font-weight: bold;
+	padding: 5px !important;
+    color: red !important;
+    border-top: 1px solid #ddd;
+    margin: 10px 5px 0 5px !important;
+}
+
+
+
+/**Rules Section**/
+
+.rules_section{
+	padding: 5px;
+	background: #fff;
+	margin-left: 15px;
+    border: 4px solid red;
+}
+.single_rule_title h2{
+	font-size: 22px;
+    color: red;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid red;
+    padding-top: 0;
+}
+.single_rule{
+	padding: 10px;
+}
+.single_rule p{
+	font-size: 17px;
+}
+
+
+/**Single Page**/
+.single_page_section{
+}
+.single_page{
+	margin-right: 40px;
+}
+.sng_page_blood_img img{
+	width: 45%;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.sng_page_blood_info{
+	width: 65%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 0px;
+    background: #fff;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+.sng_page_blood_info p{
+	font-size: 18px;
+	padding: 5px;
+	color: black;
+	margin: 0;
+}
+.sng_page_blood_info p span{
+	padding-right: 15px;
+}
+
+.form_field{
+    width: 100%;
+    display: inline-block;
+    padding: 10px;
+    margin: 5px 0;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+.td-1st{
+    width: 38% !important;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: kalpurush;
+}
+.td-2nd{
+    width: 62%;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: kalpurush;
+}
+.edit_btn a{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    padding: 10px;
+    background: #23a336;
+    color: #fff;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+
+.page_title{
+    background: red;
+    border-radius: 5px 5px 0 0;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+}
+.page_title h2{
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+    color: #fff;
+}
+
+/**Upload Page**/
+.upload_form_field{
+    margin: 20px 0;
+}
+.upload_form_field .upd-1st{
+    width: 100%;
+    padding: 10px 2px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: kalpurush;
+}
+.upload_form_field .upd-2nd>input{
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: kalpurush;
+}
+.upload_form_field .upd-2nd>select{
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: kalpurush;
+}
+.upload_form_field .upd-2nd>textarea{
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: kalpurush;
+    padding: 5px 10px;
+    font-size: 18px;
+}
+
+
+
+
+.upload_page{
+    margin: 20px 0;
+}
+.upload_page p label{
+    width: 100%;
+    padding: 10px 2px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: kalpurush;
+}
+.upload_page p input{
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: kalpurush;
+}
+
+
+/**User Profile**/
+
+/**User section**/
+.user_section{
+	border-radius: 5px 5px 0 0;
+	background: #fff;
+	display: inline-block;
+}
+.user_section h2{
+	border-bottom: 1px solid #ddd;
+	padding: 15px 10px 10px 10px;
+	font-size: 20px;
+	color: black;
+	margin: 0;
+	margin-bottom: 10px;
+}
+.user_section>.single_user{
+	padding: 10px 10px 0 10px;
+	display: inline-block;
+}
+
+.single_user_info{
+	width: 80%;
+	float: left;
+}
+.single_user_follow{
+	width: 20%;
+	float: right;
+}
+.single_user_info_img{
+	width: 20%;
+	float: left;
+}
+.single_user_info_name{
+	width: 80%;
+	float: left;
+}
+.single_user .user_image img{
+	border-radius: 50%;
+	width: 90%;
+	border: 1px solid #ddd;
+} 
+.single_user .user_name{
+	padding: 10px 0 5px 0;
+	padding-left: 10px;
+} 
+.single_user .user_name{
+	font-weight: bold;
+	color: black;
+} 
+.single_user .follow_button{
+	display: inline-block;
+	margin-top: 15px;
+}
+.single_user .follow_button a{
+	margin-right: 5px;
+	background: #eee;
+	padding: 5px;
+	font-weight: bold;
+	border-radius: 3px;
+}
+
+/**User section**/
+
+/**Update Page**/
+.update_rules>h2{
+    line-height: 1.8;
+    margin-bottom: 50px;
+    color: red;
+}
+.blood_info_h{
+    font-size:25px;
+}
+.form_action{
+    display: inline-block;
+    width: 100%;
+}
+.form_action button{
+    width: 45.5%;
+    float: left;
+    padding: 7px 5px;
+    margin: 5px;
+    text-decoration: none;
+    background: #076dd0;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+}
+.form_action button:hover{
+    background: black;
+}
+.form_action a{
+    width: 47%;
+    float: left;
+    padding: 7px 5px;
+    margin: 5px 0;
+    text-decoration: none;
+    background: #076dd0;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-align: center;font-size: 14px;
+    font-weight: bold;
+}
+.form_action a:hover{
+    background: black;
+}
+
+.reset_pass p label{
+    font-size: 18px;
+    padding-right: 10px;
+}
+.reset_pass p input{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/**Home page search form**/
+.blood_filter{
+    margin: 10px 8px 40px 8px;
+    display: inline-block;
+    width: 100%;
+}
+.blood_search{
+    text-align: center;
+    font-size: 25px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+.search_form{
+    width: 25%;
+    float: left;
+}
+.sform{
+    padding: 15px;
+}
+.sform sf_1st h2{
+    padding: 5px;
+}
+.sform .sf_2nd select{
+    width: 100%;
+    padding: 8px 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.search_form:first-child .sform{
+    padding-left: 0px;
+}
+.sform button{
+    margin-top: 29px;
+    width: 80%;
+    background: brown;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/**Log in Register Page**/
+.log_sign_section{
+    width: 40%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 5px;
+    padding-bottom:20px;
+}
+.ls_page{
+    padding: 1px 20px;
+}
+.log_field label{
+    width: 100%;
+}
+.log_field input{
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+
+/**Contact Page**/
+.contact_page{
+    display: block;
+}
+.contact_page .cnt_page_left{
+    width: 65%;
+    float: left;
+}
+.contact_page .cnt_page_right{
+    width: 35%;
+    float: left;
+}
+.contact_page .scnt_page_left{
+    padding: 10px;
+    padding-top: 0;
+    margin-right: 25px;
+    background: #fff;
+    border-radius: 5px;
+}
+.contact_page .scnt_page_right{
+    padding: 15px;
+    padding-top: 0;
+    background: #fff;
+    border-radius: 5px;
+}
+.scnt_page_right h2{
+    margin: 0;
+    padding: 10px 0;
+}
+
+
+
+/**
+* Author Page
+**/
+.profile_bg{
+	width: 80%;
+}
+label {
+    width: 100%;
+}
+
+/**Profile header**/
+
+.cover_img{
+	display: block;
+}
+.cover_img{
+	width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.cover_img img{
+	width: 100%;
+    height: auto;
+}
+.user_info{
+	width: 100%;
+	display: inline-block;
+    margin-top: -90px;
+    margin-left: 10px;
+}
+.user_profile_pic{
+	width: 20%;
+	float: left;
+    position: relative;
+}
+.user_profile_pic img{
+	width: 225px;
+	height: 225px;
+	border-radius: 100%;
+	border: 1px solid #ddd;
+}
+.user_profile_info{
+	width: 80%;
+	float: left;
+	padding: 10% 25px 10px 25px;
+}
+.pro_page_user_name{
+	width: 70%;
+	float: left;
+}
+.user_post_info{
+	width: 30%;
+	float: right;
+	margin-top: 0%;
+}
+
+.user_post_info a{
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 5px 18px;
+    border-radius: 20px;
+    float: right;
+    margin-right: 15px;
+}
+
+.user_post_info a:hover{
+    color: #fff;
+    background: red;
+    border: none;
+}
+.pro_page_user_name h2{
+    font-size: 22px;
+}
+.pro_page_user_name .cnt_info{
+    font-size:18px;
+}
+
+/**Mobile version**/
+.sng_usr_prof_in{
+    border: 3px solid green;
+    padding: 0 10px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+.sng_usr_prof_in h2{
+    
+}
+.sng_usr_prof_in h2{
+    
+}
+
+/**End Profile header**/
+
+/**Left side (Profile page)**/
+#profile_page_left{
+	width: 25%;
+	float: left;
+	position: sticky;
+    top: 80px;
+}
+.pro_bio_sections{
+	display: block;
+	padding: 0 10px;
+	background: #fff;
+	border-radius: 5px;
+}
+.profile_bio{
+	display: inline-block;
+	width: 100%;
+}
+.pro_bio_sections h2{
+	margin: 0;
+	padding: 15px 0 0px 10px;
+	font-size: 25px;
+	font-weight: bold;
+}
+.pro_bio_sections p{
+	padding: 5px;
+	color: black;
+}
+.edit_bio_button{
+	text-align: center;
+    padding: 10px;
+}
+.edit_bio_button a{
+    background: darkgreen;
+    width: 100%;
+    display: block;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.edit_bio_button a{
+    background: brown;
+}
+
+.edit_bio{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: -73px;
+	z-index: 9999;
+}
+.edit_bio_form{
+	width: 100%;
+	padding: 10px;
+	margin-left: 10px;
+	border-radius: 5px;
+	background: #fff;
+}
+.edit_bio .edit_bio_form label{
+	font-size: 20px;
+}
+.edit_bio .edit_bio_form input, textarea{
+	padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+.show_editbio{
+	display: block;
+}
+.edit_cancel_save{
+	padding: 10px 0;
+    margin-top: 25px;
+    display: inline-block;
+    width: 100%;
+}
+.edit_cancel_save button{
+	width: 49.5%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+/**End Left side
+
+/**Middle side (Profile page)**/
+
+#profile_page_middle{
+	width: 75%;
+	float: left;
+}
+.profile_user_cnt{
+	padding: 15px;
+	margin-left:25px;
+	background: #fff;
+}
+.pro_page_pu{
+	margin-top: 3px;
+}
+.profile_page_pf{
+	width: 50% !important;
+}
+.pro_page_ui img{
+    width: 45px !important;
+    height: 45px;
+}
+.post_create_date span{
+	float: right;	
+    cursor: pointer;
+}
+.post_create_date span i{
+	padding: 10px;
+}
+.edit_post_opt{
+	display: none;
+	position: absolute;
+	background: #fff;
+    border-radius: 3px;
+    top: 30px;
+    box-shadow: 0px 0px 5px 2px #ddd;
+    z-index: 99999999999;
+}
+.epo{
+	display: inline-block;
+	float: right;
+	padding: 10px;
+}
+.epo svg{
+	width: 18px;
+}
+.epo i{
+	margin-top: 2px;
+    margin-right: 5px;
+	color: black;
+}
+.epo a{
+	display: block;
+	width: 100%;
+	float: left;
+	padding: 8px 5px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.show_editpo{
+	display: block;
+}
+/**End Middle side
+
+/**Management Page**/
+
+.management_page{
+    width: 75%;
+    display: block;
+    margin: 0 auto;
+}
+
+.column-2{
+    width: 50%;
+    float: left;
+}
+.mng_item{
+    margin: 25px 20px;
+    background: #fff;
+}
+.sng_item{
+    display: inline-block;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+}
+.sng_item .mng_img{
+    width: 25%;
+    float: left;
+}
+.mng_img img{
+    width: 100%;
+    border-radius: 5px;
+}
+.sng_item .mng_info{
+    width: 75%;
+    float: left;
+    padding: 10px;
+    padding-left: 25px;
+}
+
+/**End Management Page**/
+
+
+/**Footer**/
+.footer_bg{
+	background: #040567;
+	padding: 15px 0;
+}
+.about_us ul li{
+    width: 60%;
+    margin: 0 auto;
+    float: right;
+    margin-bottom: 15px;
+}
+.about_us ul li a{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    background: #fff;
+    display: block;
+    color: black;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+.about_us ul li a:hover{
+    background: green;
+    color: #fff;
+}
+.footer_bg h2{
+    font-size: 22px;
+    color: #fff;
+    padding-bottom: 20px;
+}
+.footer_bg p{
+    font-size: 18px;
+    color: #fff;
+}
+.footer_bg a{
+    font-size: 18px;
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+.page_404 h2{
+    font-size: 35px;
+}
+.page_404 p{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px #ddd; 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #ddd; 
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: #ddd; 
+}
+

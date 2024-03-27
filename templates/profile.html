@@ -1,0 +1,180 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+
+	<!--Profile header Section-->
+	<div class="container_full" style="background-color:#fff;padding-top:4%">
+		<div class="container profile_bg">
+			<div id="Section" class="col-lg-12 col-md-12 col-xs-12 no_pad"> 	
+				
+				<div class="cover_img" style="width: 100%;"> 
+					<img style="max-height:400px" src="{% static 'img/blood-bank-cover-img.jpg' %}" alt="Cover Photo" />
+				</div>
+				
+				<div class="user_info"> 
+					<div class="user_profile_pic"> 
+						<img src="{{ user_object.avatar.url }}" alt="" />
+					</div>
+					<div class="user_profile_info"> 
+						<div class="pro_page_user_name"> 
+							<h2>{{user_object.name}}</h2>
+						</div>
+						<div class="user_post_info"> 
+                            {% if request.user.is_authenticated %}
+                                <a href="{% url 'logout' %}">Log-out</a>
+                            {% endif %}
+                                
+						</div>
+						<div style="width:99%;display:inline-block">
+							<h2 class="cnt_info" style="font-size:16px;margin:0"> Found <span style="color:red;font-size:22px">{{ countpost }}</span> Blood Information so far </h2>
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+	<!--End Profile header Section-->
+
+	<!--Content-->
+	<div class="container_full container_ddd_bg" style="padding-top: 30px;padding-bottom: 40px;">
+		<div class="container profile_bg">
+				
+			<div id="Section" class="col-lg-12 col-md-12 col-xs-12 no_pad"> 
+			
+				<!--Content Part-->
+				
+				<!--Left side (Profile page)-->
+				<div id="profile_page_left">
+					<div class="pro_bio_sections"> 
+						<h2>Intro</h2>
+						<div class="profile_bio">
+
+							<div class="col-lg-12 col-md-12 col-xs-12" style="border-bottom: 1px solid #ddd; margin-bottom: 20px">
+								<p style="padding:10px 0;text-align:center">{{user_object.bio}}</p>
+							</div>
+							
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<p style="padding: 10px 0; font-size: 18px;" for="about">রক্তের গ্রুপঃ {{user_object.bloodgroups}}</p>
+							</div>
+							
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<p style="padding: 10px 0; font-size: 18px;" for="about">মোবাইলঃ {{user_object.phone}}</p>
+							</div>
+							
+							<div class="col-lg-12 col-md-12 col-xs-12">
+								<p style="padding: 10px 0; font-size: 18px;" for="about">ইমেইলঃ</p>
+								<p style="padding: 2px 0; font-size: 18px;">{{user_object.email}}</p>
+							</div>
+
+						</div>
+						
+						<div class="edit_bio_button"> 
+    						{% if user_object.username == user.username %}
+    							<a  href="{% url 'update-profile' username=request.user.username %}">Edit bio</a>
+    						{% endif %}
+						</div>
+						
+					</div>
+					
+				</div>
+					
+					
+				<!--Middle side (Profile page)-->
+				<div id="profile_page_middle">
+					<div class="profile_user_cnt"> 
+						<div class="user_post">
+						    
+							<div class="single_post"> 
+							    
+							    <div class="blood_upload info_not_find" style="margin-top:10px">
+        							<a style="width:100%;margin:0 0 19px 0 !important" href="{% url 'blood-info-add' %}">ব্লাডব্যাংকে তথ্য যুক্ত করুন</a>
+        						</div>
+							    
+							    {% for message in messages %}
+        							<h2 style="padding: 15px 0; text-align:center;color:green">{{message}}</h2>
+        						{% endfor %}
+							
+								<form class="uup_search" method="GET" action="" style="display: inline-block; width: 100%; margin-bottom: 10px;">
+                                    <label style="width:79%;float:left">
+                                        <input style="width: 100%; padding: 9px; border-radius: 5px 0 0 5px; border: 1px solid #ddd;" name="q" placeholder="অনুসন্ধান করুন..." />
+                                    </label>
+                                    <label style="width:20%;float:left;margin:0">
+                                        <button type="submit" style="width: 100%; padding: 6px; border: 1px solid #ddd; border-radius: 0 5px 5px 0; background: #00ff72; color: #fff;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+                                                <path d="M8.269 2.469a5.764 5.764 0 014.1 1.7 5.764 5.764 0 011.7 4.1 5.78 5.78 0 01-.347 1.984 5.778 5.778 0 01-.962 1.688l-.383.467-.472.381a5.735 5.735 0 01-3.638 1.283 5.764 5.764 0 01-4.1-1.7 5.764 5.764 0 01-1.7-4.1 5.764 5.764 0 011.7-4.1 5.764 5.764 0 014.1-1.7m0-2.467A8.269 8.269 0 00.003 8.269a8.269 8.269 0 008.269 8.269 8.233 8.233 0 005.187-1.829 1.755 1.755 0 00.444 1.717l3.114 3.114a1.745 1.745 0 001.238.511 1.745 1.745 0 001.238-.511 1.756 1.756 0 000-2.476l-3.114-3.114a1.744 1.744 0 00-1.237-.51 1.771 1.771 0 00-.468.063 8.234 8.234 0 001.867-5.234A8.269 8.269 0 008.272 0z" data-name="Path 223" fill="#001246"></path>
+                                            </svg>
+                                        </button>
+                                    </label>
+                                </form>
+                                {% if userpost %}
+								<table class="auto-index desk">
+                                    <tr>
+                                        <th>SL</th>
+                                        <th>Name</th>
+                                        <th>Blood Group</th>
+                                        <th>Address</th>
+                                        <th>Dlood Donation Date</th>
+                                        <th>edit</th>
+                                    </tr>
+                                    {% for post in userpost reversed %}
+                                    <tr>
+                                        <td></td>
+                                        <td>{{ post.name }}</td>
+                                        <td>{{ post.bloodgroups }}</td>
+                                        <td>{{ post.city }}, {{ post.location }}</td>
+                                        <td>{{ post.donation_date }}</td>
+                                        <td>
+                                            {% if post.author == request.user %}
+        										<a style="border: 1px solid; padding: 5px 5px 0 5px; border-radius: 5px;" href="{% url 'bld-info-update' post.id %}">
+        										<svg style="width:20px;margin-right:15px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"/></svg>Edit</a>
+        									{% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                                {% else %}
+                                <div class="blood_upload info_not_find" style="margin-top:20px">
+        							<p class="text-center p-2 mb-0 text-danger bg-white">কোন তথ্য পাওয়া যায়নি</p>
+        							<a href="{% url 'blood-info-add' %}">অনুগ্রহ করে তথ্য যুক্ত করুন</a>
+        						</div>
+                                {% endif %}
+                                
+                                <div class="usr_prof_in mob">
+                                    
+                                    {% for post in userpost reversed %}
+                                    
+                                    <div class="sng_usr_prof_in">
+                                        <h2>নামঃ {{ post.name }}</h2>
+                                        <p>রক্তের গ্রুপঃ {{ post.bloodgroups }}</p>
+                                        <p>ঠিকানাঃ {{ post.city }}, {{ post.location }}</p>
+                                        <p>রক্তদানের তারিখঃ {{ post.donation_date }}</p>
+                                        <p>
+                                        {% if post.author == request.user %}
+    										<a style="border: 1px solid; padding: 5px 5px 0 5px; border-radius: 5px;" href="{% url 'bld-info-update' post.id %}">
+    										<svg style="width:20px;margin-right:15px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M373.1 24.97C401.2-3.147 446.8-3.147 474.9 24.97L487 37.09C515.1 65.21 515.1 110.8 487 138.9L289.8 336.2C281.1 344.8 270.4 351.1 258.6 354.5L158.6 383.1C150.2 385.5 141.2 383.1 135 376.1C128.9 370.8 126.5 361.8 128.9 353.4L157.5 253.4C160.9 241.6 167.2 230.9 175.8 222.2L373.1 24.97zM440.1 58.91C431.6 49.54 416.4 49.54 407 58.91L377.9 88L424 134.1L453.1 104.1C462.5 95.6 462.5 80.4 453.1 71.03L440.1 58.91zM203.7 266.6L186.9 325.1L245.4 308.3C249.4 307.2 252.9 305.1 255.8 302.2L390.1 168L344 121.9L209.8 256.2C206.9 259.1 204.8 262.6 203.7 266.6zM200 64C213.3 64 224 74.75 224 88C224 101.3 213.3 112 200 112H88C65.91 112 48 129.9 48 152V424C48 446.1 65.91 464 88 464H360C382.1 464 400 446.1 400 424V312C400 298.7 410.7 288 424 288C437.3 288 448 298.7 448 312V424C448 472.6 408.6 512 360 512H88C39.4 512 0 472.6 0 424V152C0 103.4 39.4 64 88 64H200z"/></svg>Edit</a>
+    									{% endif %}
+                                        </p>
+                                    </div>
+                                    
+								    {% endfor %}
+                                    
+                                </div>
+								
+							</div>
+
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!--End Main Heading-->
+	
+
+
+{% endblock content %}

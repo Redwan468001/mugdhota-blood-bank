@@ -1,0 +1,139 @@
+
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+    
+    <div class="container_full" style="padding-top: 6%">
+		<div class="container">
+	
+        	<div style="margin:25px 10px;">
+        	    <a style="padding:10px;font-size:20px;display:inline-block;width:100%;background:green;color:#fff;text-align:center;border-radius:5px" href="https://mugdhota.com/">মুগ্ধতা.কম এ যান </a>
+        	</div>
+
+            
+		</div>
+	</div>
+	<!--End header-->
+    
+	<!--Single Page-->
+	<div class="container_full" style="padding-bottom: 40px;">
+		<div class="container">
+
+			<div class="left_section">
+
+				<div class="blood_upload">
+					<a href="{% url 'blood-info-add' %}">রক্তদাতার তথ্য নিবন্ধন করুন </a>
+				</div>
+
+				<div class="blood_info_sec">
+                    
+					<div class="blood_filter">
+						<form method="get"  id="personForm" data-cities-url="{% url 'ajax_load_cities' %}">
+							{% csrf_token %}
+							<h2 class="blood_info_title">রক্ত খুঁজুন</h2>
+							<div class="search_form">
+								<div class="sform">
+									<div class="sf_1st">
+										<h2>রক্তের গ্রুপ</h2>
+									</div>
+									<div class="sf_2nd">
+										{{ blood_filter.form.bloodgroups }}
+									</div>
+								</div>
+							</div>
+							<div class="search_form">
+								<div class="sform">
+									<div class="sf_1st">
+										<h2>বিভাগ</h2>
+									</div>
+									<div class="sf_2nd">
+										{{ blood_filter.form.division }}
+									</div>
+								</div>
+							</div>
+							<div class="search_form">
+								<div class="sform">
+									<div class="sf_1st">
+										<h2>জেলা</h2>
+									</div>
+									<div class="sf_2nd">
+										{{ blood_filter.form.location }}
+									</div>
+								</div>
+							</div>
+							<div class="search_form">
+								<div class="sf_1st">
+									<h2></h2>
+								</div>
+								<div class="sform">
+									<button class="btn btn-sm btn-danger" type="submit">অনুসন্ধান</button>
+								</div>
+							</div>
+
+						</form>
+					</div>
+
+					<div class="blood_info">
+                        
+                        {% if blood_filter.qs %}
+						{% for donner in blood_filter.qs reversed %}
+    						{% if forloop.counter <= 50 %}
+    						<div class="single_blood_info">
+    							<div class="sng_bld_info">
+    								<a href="{% url 'donner' donner.id %}">
+    									<div class="sng_blood_img">
+    										<img src="{{donner.bloodgroups.image.url}}" alt="" />
+    									</div>
+    									<div class="sng_blood_info">
+    										<h2>{{donner.name}}</h2>
+							                <p style="color: red">রক্তদানঃ  {{donner.donation_date}}</p>
+    										<p><span>ঠিকানাঃ</span>{{donner.city}}, {{donner.location}}</p>
+    										{{d_date}}
+    										<p class="read_more">বিস্তারিত</p>
+    									</div>
+    								</a>
+    							</div>
+    						</div>
+    						{% endif %}
+						{% endfor %}
+						{% else %}
+                        <div class="blood_upload info_not_find">
+							<p class="text-center p-2 mb-0 text-danger bg-white">দুঃখিত কোন তথ্য পাওয়া যায়নি</p>
+							<a href="{% url 'blood-info-add' %}">অনুগ্রহ করে আপনার তথ্য যুক্ত করুন</a>
+						</div>
+                        {% endif %}
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+			<div class="right_section">
+				<div class="rules_section">
+					<div class="single_rule_title">
+						<h2 class="blood_search">শর্তাবলি</h2>
+					</div>
+					<div class="single_rule">
+						<p>১. 'মুগ্ধতা ব্লাড ব্যাংক' মুগ্ধতা ডট কমের একটি সামাজিক উদ্যোগ।</p>
+						<p>২. এখানে নিজের বা পরিচিতদের রক্তের গ্রুপ সম্পর্কে তথ্য দিয়ে এটিকে সমৃদ্ধ করতে সাহায্য করুন। </p>
+						<p>৩. এখানে কেউ রক্তদাতা হিসেবে নিজের তথ্য দিচ্ছেন- এর অর্থ হলো আপনি স্বেচ্ছায়, বিনামূল্যে কোনো মুমূর্ষু/অসুস্থ মানুষকে রক্তদান করতে ইচ্ছুক।</p>
+						<p>৪. ব্লাড ব্যাংক থেকে পাওয়া নম্বরে যোগাযোগ করে রক্তদাতা রাজি থাকলে নিজ দায়িত্বে কোনো ভালো ট্রান্সফিউশন সেন্টার/সরকারি হাসপাতালে রক্ত সংগ্রহ করতে হবে। </p>
+						<p>৫. রক্তদান বা রক্ত সংগ্রহের যে কোনো পর্যায়ে ক্রয়-বিক্রয়ের উদ্দেশ্যে অর্থের লেনদেন থেকে বিরত থাকুন। তবে রক্তদাতাকে পানি, নাস্তা ইত্যাদি খাওয়ানো বা রিকশাভাড়া এই নিষেধাজ্ঞার আওতামুক্ত।</p>
+						<p>৬. কেউ রক্তদানে অনাগ্রহী হলে তাকে কোনো প্রকার জোরাজুরি করা যাবে না।</p>
+						<p>৭. রক্তদাতাকে যথাযথ সম্মান প্রদর্শন করা গ্রহীতার জরুরি দায়িত্ব।</p>
+						<p>৮. রক্তদানের যে কোনো পর্যায়ে কোনো ধরনের দুর্ঘটনা, অনাকাঙ্ক্ষিত ঘটনা ইত্যাদির জন্য মুগ্ধতা ডট কম দায়ী থাকবে না।</p>
+						<p>৯. উপর্যুক্ত শর্তাবলি বা এর কোনো অংশে যে কোনো সময় পরিবর্তন বা সংযোজন করার ক্ষমতা মুগ্ধতা ডট কমের কাছে সংরক্ষিত থাককবে।</p>
+						<p>১০. সময়মতো আপনার রক্তদানের তথ্য আপডেট করুন।</p>
+						<p>১১. বর্ণিত শর্তাবলির বাইরে উদ্ভূত যে কোনো পরিস্থিতিতে মুগ্ধতা ডট কমের সিদ্ধান্তই চূড়ান্ত বলে গণ্য হবে।</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!--End Main Heading-->
+
+
+{% endblock %}

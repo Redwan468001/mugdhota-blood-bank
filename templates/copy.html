@@ -1,0 +1,57 @@
+
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+    
+    <div class="container_full" style="padding-top: 6%">
+		<div class="container">
+	
+        	<div style="margin:25px 10px;">
+        	    <a style="padding:10px;font-size:20px;display:inline-block;width:100%;background:green;color:#fff;text-align:center;border-radius:5px" href="https://mugdhota.com/">মুগ্ধতা.কম এ যান </a>
+        	</div>
+
+            
+		</div>
+	</div>
+	<!--End header-->
+    
+	<!--Single Page-->
+	<div class="container_full" style="padding-bottom: 40px;">
+		<div class="container">
+
+			<div class="left_section">
+
+				<div class="blood_info_sec">
+                    
+
+					<div class="blood_info">
+                        
+						{% for donner in blood_donnerall %}
+						<div class="single_blood_info">
+							<div class="sng_bld_info">
+								<div class="sng_blood_info">
+									<h2>{{donner.name}}</h2>
+									<p>{{donner.bloodgroups}}</p>
+									<p>{{donner.division}}</p>
+									<p>{{donner.location}}</p>
+									<p>{{donner.phone}}</p>
+									<p>{{donner.donation_date}}</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+
+					</div>
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+	<!--End Main Heading-->
+
+
+{% endblock %}

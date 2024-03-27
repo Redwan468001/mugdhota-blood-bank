@@ -1,0 +1,260 @@
+
+
+/*		Default Layout: 1200px. 
+		Gutters: 24px.
+		Outer margins: 48px.
+		Leftover space for scrollbars @1024px: 32px.
+-------------------------------------------------------------------------------
+*/
+
+.mob{
+	display: none;
+}
+
+
+
+
+/*		Mobile Layout: 800px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 800px) {
+    .container {
+		width: 90% !important;
+	}
+    
+    
+}
+
+
+
+/*		Mobile Layout: 480px.
+		Gutters: 24px.
+		Outer margins: 22px.
+		Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 280px) and (max-width: 800px) {
+	
+	.container_full{padding:0px 0 0 0;}
+	.container {
+		width: 100%;
+	}
+	.desk{
+	    display: none;
+	}
+    .desk_header {
+        position: relative;
+    }
+    /**Header**/
+    .home_icon img {
+        width: 100%;
+        padding: 10px;
+    }
+    .home_cnt{
+        width: 100%;
+        border-top: 1px solid #ddd;
+    }
+    .home_info {
+        float: left;
+        width: 100%;
+    }
+    .home_info ul {
+        width: 100%;
+        padding: 0;
+    }
+    .home_info ul li {
+        width: 50%;
+        float: left;
+    }
+    .home_info ul li a {
+        font-size: 16px;
+        padding: 4px 0;
+    }
+
+    /**Home Page**/
+    .left_section{
+        width: 100%;
+    }
+    .right_section{
+        width: 100%;
+    }
+    .blood_info {
+        padding: 10px;
+        display: inline-block;
+        width: 100%;
+    }
+    .blood_info .single_blood_info {
+        width: 100%;
+        padding: 0;
+        margin: 5px 0;
+    }
+    .search_form {
+        width: 50%;
+    }
+    .blood_filter{
+        margin: 20px 0;
+    }
+    .sform {
+        padding: 8px 15px;
+    }
+    .sform button {
+        width: 100%;
+    }
+    .rules_section {
+      margin: 0 10px;
+    }
+
+    /**Single Page**/
+    .single_page {
+        margin: 0 0 20px 0;
+        padding: 0 10px;
+    }
+    .sng_page_blood_info {
+        width: 100%;
+        padding: 2px 20px
+    }
+    .form_action button{
+        margin-bottom: 15px;
+    }
+    /**Contact Page**/
+    .contact_page .cnt_page_left{
+        width: 100%;
+    }
+    .contact_page .cnt_page_right{
+        width: 100%;
+    }
+    .about_us ul li{
+        width: 100%;
+    }
+    .blood_upload a{
+        margin: 0 10px 20px 10px;
+    }
+    .mob{
+    	display: block;
+    }
+    .log_sign_section {
+        width: 92%;
+    }
+    .h_user img{
+    	width: 28px;
+    	height: 28px;
+    }
+    .mnu_body{width: auto}
+    
+    /**Profile**/
+    .user_profile_pic img {
+      width: 75px;
+      height: 75px;
+    }
+    .user_profile_info {
+      width: 80%;
+      padding: 5% 5px 10px 10px;
+    }
+    #profile_page_left{
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+    .pro_bio_sections {
+      margin: 0 10px;
+    }
+    .pro_page_user_name h2{
+        font-size: 18px !important;
+    }
+    .pro_page_user_name .cnt_info{
+        font-size:16px;
+    }
+    #profile_page_middle {
+      width: 100%;
+      margin-top:20px;
+    }
+    .profile_user_cnt {
+      padding: 10px;
+      margin: 0px;
+    }
+    .user_info {
+      margin-top: -20px;
+    }
+    .user_post_info {
+      margin-top: 0%;
+    }
+    .user_post_info a {
+      font-size: 16px;
+      padding: 4px 3px;
+      margin-right: 10px;
+      border: none;
+    }
+
+    .page_404 h2{
+        font-size: 25px;
+    }
+    .page_404 p{
+        font-size: 20px;
+        padding: 20px 0;
+    }
+
+
+
+
+	
+}
+
+	
+	
+@media only screen and (min-width: 480px) and (max-width: 800px) {
+
+    
+    
+}
+	
+@media only screen and (min-width: 680px) and (max-width: 900px) {
+
+    
+    
+}
+
+@media only screen and (min-width: 320px) and (max-width: 679px) {
+.mob{
+	display: block;
+}
+
+
+    
+}
+
+@media only screen and (min-width: 280px) and (max-width: 320px) {
+.mob{
+	display: block;
+}
+
+
+
+}
+
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+    
+    
+    
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
